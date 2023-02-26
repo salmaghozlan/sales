@@ -46,6 +46,7 @@ export default class StaffsController {
             }
         });
         
+        
         var staff = new Staff();
         staff.firstName = fields.first_name;
         staff.lastName = fields.last_name;
