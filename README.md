@@ -22,4 +22,7 @@ API for sales database using Adonisjs as framework
 # npm i @adonisjs/i18n
 # node ace configure @adonisjs/i18n
 
+-staff and order has 1:M relationship 
+each one staff has many orders and each order belongs to one staff
+
 
