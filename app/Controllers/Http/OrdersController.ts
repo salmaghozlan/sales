@@ -12,6 +12,12 @@ export default class OrdersController {
         return result;
 
     }
+public async belongOrder (ctx: HttpContextContract){
+    // it will return each order with the satff that belongs to it
+    var result = await Order.query().preload("staff");
+    return result;
+}
+
     public async getAll(ctx: HttpContextContract) {
         var object = await ctx.auth.authenticate();
         const page = ctx.request.input('page', 1)
@@ -25,7 +31,7 @@ export default class OrdersController {
     public async create(ctx: HttpContextContract) {
         var object = await ctx.auth.authenticate();
         const newSchema = schema.create({
-            customer_name: schema.string(),
+            customer_id: schema.number(),
             order_status : schema.number(),
             store_id : schema.number(),
             staff_id : schema.number(),
@@ -34,7 +40,7 @@ export default class OrdersController {
         const fields = await ctx.request.validate({ schema: newSchema})
         
         var order = new Order();
-        order.customerName = fields.customer_name;
+        order.customerId = fields.customer_id;
         order.orderStatus = fields.order_status;
         order.storeId = fields.store_id;
         order.staffId = fields.staff_id;
@@ -48,7 +54,7 @@ export default class OrdersController {
         var fields = ctx.request.all();
         var id = fields.id;
         var order = await Order.findOrFail(id);
-        order.customerName = fields.customer_name;
+        order.customerId = fields.customer_id;
         order.orderStatus = fields.order_status;
         order.storeId = fields.store_id;
         order.staffId = fields.staff_id;

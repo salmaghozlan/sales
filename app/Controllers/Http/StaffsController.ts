@@ -15,8 +15,8 @@ export default class StaffsController {
     public async getAll(ctx: HttpContextContract) {
         var object = await ctx.auth.authenticate();
         console.log(object);
-        var result =await Staff.all();
-
+        //it will return each staff with there orders 
+        var result = await Staff.query().preload("order");
         return result;
         
     }
@@ -45,7 +45,7 @@ export default class StaffsController {
                 'email.email': 'Email must be an email format',
             }
         });
-        
+
         
         var staff = new Staff();
         staff.firstName = fields.first_name;

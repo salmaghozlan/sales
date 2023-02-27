@@ -1,12 +1,12 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
-
+import { BaseModel, BelongsTo, belongsTo,HasMany,hasMany, column } from '@ioc:Adonis/Lucid/Orm'
+import Staff from './Staff'
 export default class Order extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({ serializeAs: "customer_name", })
-  public customerName: string
+  @column({ serializeAs: "customer_id", })
+  public customerId: number
 
   @column({ serializeAs: "order_status", })
   public orderStatus: number
@@ -16,5 +16,10 @@ export default class Order extends BaseModel {
 
   @column({ serializeAs: "staff_id", })
   public staffId: number
+
+  @belongsTo(() => Staff, {
+    foreignKey: 'staffId',
+  })
+  public staff: BelongsTo<typeof Staff>
   
 }

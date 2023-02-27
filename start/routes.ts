@@ -50,8 +50,9 @@ Route.group(() => {
 
 
   Route.group(() => {
+    Route.get("/order", "OrdersController.belongOrder");
     Route.get("/:id", "OrdersController.getById");
-    Route.get("/", "OrdersController.getAll");
+    Route.get("/", "OrdersController.getAll"); 
     Route.post("/", "OrdersController.create");
     Route.put("/", "OrdersController.update");
     Route.delete("/:id", "OrdersController.destroy");
