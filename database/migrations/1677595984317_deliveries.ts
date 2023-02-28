@@ -1,0 +1,20 @@
+import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+
+export default class extends BaseSchema {
+  protected tableName = 'deliveries'
+
+  public async up () {
+    this.schema.createTable(this.tableName, (table) => {
+      table.increments('id')
+      table.integer('driver_id').unsigned()
+      table.integer('customer_id').unsigned()
+      table.integer('order_id').unsigned()
+      table.string('status', 50).notNullable()
+      table.timestamps(true,true);
+    })
+  }
+
+  public async down () {
+    this.schema.dropTable(this.tableName)
+  }
+}
