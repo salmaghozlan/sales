@@ -5,6 +5,17 @@ export default class LoyalityProgram extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+
+  @column({ serializeAs: "customer_id", })
+  public customer_id: number
+  
+  @column({ serializeAs: "pointsBalance", })
+  public pointsBalance: number
+  
+  @column({ serializeAs: "rewardsAvailable", })
+  public rewardsAvailable: number
+
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

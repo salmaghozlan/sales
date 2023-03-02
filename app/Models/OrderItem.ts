@@ -5,6 +5,15 @@ export default class OrderItem extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
+  @column({ serializeAs: "product_id", })
+  public productId: number
+  
+  @column({ serializeAs: "quantity", })
+  public quantity: number
+  
+  @column({ serializeAs: "price", })
+  public price: number
+  
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
