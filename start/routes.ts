@@ -41,6 +41,14 @@ Route.group(() => {
   }).prefix("/brands");
 
   Route.group(() => {
+    Route.get("/:id", "CartsController.getById");
+    Route.get("/", "CartsController.getAll");
+    Route.post("/", "CartsController.create");
+    Route.put("/", "CartsController.update");
+    Route.delete("/:id", "CartsController.destroy");
+  }).prefix("/carts");
+
+  Route.group(() => {
     Route.get("/:id", "CategoriesController.getById");
     Route.get("/", "CategoriesController.getAll");
     Route.post("/", "CategoriesController.create");
@@ -50,6 +58,76 @@ Route.group(() => {
 
 
   Route.group(() => {
+    Route.get("/:id", "CitiesController.getById");
+    Route.get("/", "CitiesController.getAll");
+    Route.post("/", "CitiesController.create");
+    Route.put("/", "CitiesController.update");
+    Route.delete("/:id", "CitiesController.destroy");
+  }).prefix("/cities");
+
+  Route.group(() => {
+    Route.get("/:id", "CountriesController.getById");
+    Route.get("/", "CountriesController.getAll");
+    Route.post("/", "CountriesController.create");
+    Route.put("/", "CountriesController.update");
+    Route.delete("/:id", "CountriesController.destroy");
+  }).prefix("/countries");
+
+  Route.group(() => {
+    Route.get("/:id", "CouponsController.getById");
+    Route.get("/", "CouponsController.getAll");
+    Route.post("/", "CouponsController.create");
+    Route.put("/", "CouponsController.update");
+    Route.delete("/:id", "CouponsController.destroy");
+  }).prefix("/coupons");
+
+
+  Route.group(() => {
+    Route.get("/:id", "CustomersController.getById");
+    Route.get("/", "CustomersController.getAll");
+    Route.post("/", "CustomersController.create");
+    Route.put("/", "CustomersController.update");
+    Route.delete("/:id", "CustomersController.destroy");
+  }).prefix("/customers");
+
+  
+  Route.group(() => {
+    Route.get("/:id", "DeliveriesController.getById");
+    Route.get("/", "DeliveriesController.getAll");
+    Route.post("/", "DeliveriesController.create");
+    Route.put("/", "DeliveriesController.update");
+    Route.delete("/:id", "DeliveriesController.destroy");
+  }).prefix("/deliveries");
+
+
+  Route.group(() => {
+    Route.get("/:id", "DriversController.getById");
+    Route.get("/", "DriversController.getAll");
+    Route.post("/", "DriversController.create");
+    Route.put("/", "DriversController.update");
+    Route.delete("/:id", "DriversController.destroy");
+  }).prefix("/drivers");
+  
+
+  
+  Route.group(() => {
+    Route.get("/:id", "LoyalityProgramsController.getById");
+    Route.get("/", "LoyalityProgramsController.getAll");
+    Route.post("/", "LoyalityProgramsController.create");
+    Route.put("/", "LoyalityProgramsController.update");
+    Route.delete("/:id", "LoyalityProgramsController.destroy");
+  }).prefix("/loyalityPrograms");
+
+
+  Route.group(() => {
+    Route.get("/:id", "OrderItemsController.getById");
+    Route.get("/", "OrderItemsController.getAll");
+    Route.post("/", "OrderItemsController.create");
+    Route.put("/", "OrderItemsController.update");
+    Route.delete("/:id", "OrderItemsController.destroy");
+  }).prefix("/orderItems");
+  
+  Route.group(() => {
     Route.get("/order", "OrdersController.belongOrder");
     Route.get("/:id", "OrdersController.getById");
     Route.get("/", "OrdersController.getAll"); 
@@ -58,16 +136,40 @@ Route.group(() => {
     Route.delete("/:id", "OrdersController.destroy");
   }).prefix("/orders");
 
+  
   Route.group(() => {
-  Route.post("/", "ProductsController.upload");
+    Route.get("/:id", "PaymentsController.getById");
+    Route.get("/", "PaymentsController.getAll");
+    Route.post("/", "PaymentsController.create");
+    Route.put("/", "PaymentsController.update");
+    Route.delete("/:id", "PaymentsController.destroy");
+  }).prefix("/payments");
+  
+  Route.group(() => {
+    Route.get("/:id", "ProductsController.getById");
+    Route.get("/", "ProductsController.getAll");
+    Route.post("/", "ProductsController.create");
+    Route.put("/", "ProductsController.update");
+    Route.delete("/:id", "ProductsController.destroy");  
 }).prefix("/products");
 
+
+
 Route.group(() => {
-  Route.get("/:id", "StaffsController.getById");
-  Route.get("/", "staffsController.getAll");
-  Route.post("/", "StaffsController.create");
-  Route.put("/", "StaffsController.update");
-  Route.delete("/:id", "StaffsController.destroy");
-}).prefix("/staffs");
+  Route.get("/:id", "TransactionsController.getById");
+  Route.get("/", "TransactionsController.getAll");
+  Route.post("/", "TransactionsController.create");
+  Route.put("/", "TransactionsController.update");
+  Route.delete("/:id", "TransactionsController.destroy");  
+}).prefix("/transaction");
+
+
+Route.group(() => {
+  Route.get("/:id", "UsersController.getById");
+  Route.get("/", "UsersController.getAll");
+  Route.post("/", "UsersController.create");
+  Route.put("/", "UsersController.update");
+  Route.delete("/:id", "UsersController.destroy");
+}).prefix("/users");
 
 }).prefix('api');
