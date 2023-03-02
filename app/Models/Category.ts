@@ -4,9 +4,16 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 export default class Category extends BaseModel {
   @column({ isPrimary: true })
   public id: number
+  
+  @column({ serializeAs: "coupon_id", })
+  public couponId: number
 
-  @column({ serializeAs: "category_name", })
-  public categoryName: string
+  @column({ serializeAs: "name", })
+  public name: string
+
+  
+  @column({ serializeAs: "type", })
+  public type: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
