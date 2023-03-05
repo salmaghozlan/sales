@@ -6,7 +6,7 @@ export default class Customer extends BaseModel {
   public id: number
   
   @column({ serializeAs: "user_id", })
-  public userName: number
+  public userId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

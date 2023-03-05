@@ -5,8 +5,8 @@ export default class Driver extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({ serializeAs: "user_name", })
-  public userName: number
+  @column({ serializeAs: "user_id", })
+  public userId: number
 
   @column({ serializeAs: "availability", })
   public availability: boolean
