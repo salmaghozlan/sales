@@ -9,7 +9,7 @@ export default class LoyalityProgram extends BaseModel {
   @column({ serializeAs: "customer_id", })
   public customer_id: number
   
-  @column({ serializeAs: "pointsBalance", })
+  @column({ serializeAs: "points_balance", })
   public pointsBalance: number
   
   @column({ serializeAs: "rewardsAvailable", })

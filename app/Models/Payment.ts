@@ -15,7 +15,7 @@ export default class Payment extends BaseModel {
   public amountPaid: number
 
   @column({ serializeAs: "date_of_payment", })
-  public dateOfPayment: number
+  public dateOfPayment: DateTime
 
   @column({ serializeAs: "check_number", })
   public checkNumber: number

@@ -13,11 +13,16 @@ export default class CategoriesController {
     public async getAll(ctx: HttpContextContract) {
         var object = await ctx.auth.authenticate();
         var query = Category.query();
-        var categoryName = ctx.request.input("category_name");
-        if (categoryName) {
-            query.where("category_name", 'LIKE',  `%${categoryName}%` );
+        var Name = ctx.request.input("name");
+        var type = ctx.request.input("type");
+
+        if (Name) {
+            query.where("name", 'LIKE',  `%${Name}%` );
         }
 
+        if (type){
+            query.where("type",'LIKE', `%${type}%`);
+        }
         var result = await query;
         return result;
         
@@ -27,13 +32,15 @@ export default class CategoriesController {
         
         var object = await ctx.auth.authenticate();
         const newSchema = schema.create({
-            category_name: schema.string(),    
+            coupon_id : schema.number.optional(),
+            name: schema.string(),
+            type: schema.string(),    
         });
 
         const fields = await ctx.request.validate({ schema: newSchema})
-        
         var category = new Category();
-        category.categoryName = fields.category_name;
+        category.name = fields.name;
+        category.type = fields.type;
         var result = await category.save();
         return result;
         
@@ -44,7 +51,9 @@ export default class CategoriesController {
         var fields = ctx.request.all();
         var id = fields.id;
         var category = await Category.findOrFail(id);
-        category.categoryName = fields.category_name;
+        category.name = fields.name;
+        category.couponId = fields.couponId;
+        category.type = fields.type;
         
         var result = await category.save();
         return result;

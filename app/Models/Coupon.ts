@@ -7,7 +7,7 @@ export default class Coupon extends BaseModel {
 
   
   @column({ serializeAs: "coupon_code", })
-  public couponCode: number
+  public couponCode: string
 
   
   @column({ serializeAs: "discount_amount", })

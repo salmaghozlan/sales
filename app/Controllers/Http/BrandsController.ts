@@ -22,13 +22,13 @@ export default class BrandsController {
     public async create(ctx: HttpContextContract) {
         var object = await ctx.auth.authenticate();
         const newSchema = schema.create({
-            brand_name: schema.string(),
+            name: schema.string(),
             
         });
         const fields = await ctx.request.validate({ schema: newSchema})
         
         var brand = new Brand();
-        brand.brandName = fields.brand_name;
+        brand.name = fields.name;
         var result = await brand.save();
         return result;
     
@@ -39,8 +39,7 @@ export default class BrandsController {
         var fields = ctx.request.all();
         var id = fields.id;
         var brand = await Brand.findOrFail(id);
-        brand.brandName = fields.brand_name;
-        
+        brand.name = fields.name;   
         var result = await brand.save();
         return result;
     }
