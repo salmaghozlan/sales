@@ -12,17 +12,17 @@ API for sales database using Adonisjs as framework
 
 -used validation in create schema
 
--used file upload locally in products
+-used file upload locally in products (master branch)
 
--used pagination in orders
+-used pagination in orders (master branch)
 
--used custom filter in categories
+-used custom filter in categories (master branch)
 
--used i18n custom validation in arabic in staffs
+-used i18n custom validation in arabic in staffs (master branch)
 # npm i @adonisjs/i18n
 # node ace configure @adonisjs/i18n
 
--staff and order has 1:M relationship 
+-staff and order has 1:M relationship (master branch)
 each one staff has many orders and each order belongs to one staff
 
 
